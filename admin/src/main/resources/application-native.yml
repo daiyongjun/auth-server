@@ -1,0 +1,24 @@
+# datasource相关配置
+spring:
+  datasource:
+    dynamic:
+      p6spy: true # 默认false,建议线上关闭。
+      datasource:
+        master:
+          url: jdbc:mysql://192.168.31.201:3306/auth_table?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&autoReconnect=true&rewriteBatchedStatements=true&useAffectedRows=true&allowMultiQueries=true
+          username: daiyongjun
+          password: MyNewPass4!
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          init:
+            schema: db/schema.sql
+# druid 连接池相关配置
+spring.datasource.dynamic.druid:
+  # 配置检测连接是否有效
+  validation-query: select 1
+
+# druid 监控相关配置
+spring.datasource.druid:
+  stat-view-servlet:
+    enabled: true
+    login-username: admin
+    login-password: 123456
